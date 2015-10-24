@@ -4,7 +4,7 @@ Name:		gccxml
 Version:	0.9.0
 %define	gitref	3afa8ba5be6866e603dcabe80aff79856b558e24
 %define	snap	20150424
-%define	rel	2
+%define	rel	3
 Release:	0.%{snap}.%{rel}
 License:	GPL v2+ (GCC code), BSD-like (GCC-XML)
 Group:		Development/Tools
@@ -44,6 +44,10 @@ rm -rf $RPM_BUILD_ROOT
 # packaged as %doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/gccxml-0.9
 
+for ver in 5.1 5.2 ; do
+	ln -sf 4.9 $RPM_BUILD_ROOT%{_datadir}/gccxml-0.9/GCC/$ver
+done
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -73,6 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gccxml-0.9/GCC/4.7
 %{_datadir}/gccxml-0.9/GCC/4.8
 %{_datadir}/gccxml-0.9/GCC/4.9
+%{_datadir}/gccxml-0.9/GCC/5.1
+%{_datadir}/gccxml-0.9/GCC/5.2
 %dir %{_datadir}/gccxml-0.9/IBM
 %{_datadir}/gccxml-0.9/IBM/8.0
 %attr(755,root,root) %{_datadir}/gccxml-0.9/IBM/find_flags
