@@ -4,11 +4,13 @@ Name:		gccxml
 Version:	0.9.0
 %define	gitref	3afa8ba5be6866e603dcabe80aff79856b558e24
 %define	snap	20150424
-Release:	0.%{snap}.1
+%define	rel	2
+Release:	0.%{snap}.%{rel}
 License:	GPL v2+ (GCC code), BSD-like (GCC-XML)
 Group:		Development/Tools
 Source0:	https://github.com/gccxml/gccxml/archive/%{gitref}/%{name}-%{snap}.tar.gz
 # Source0-md5:	70e4b145feb2a7036c835cf214cae26a
+Patch0:		%{name}-gcc.patch
 URL:		http://gccxml.github.io/HTML/Index.html
 BuildRequires:	cmake
 BuildRequires:	libstdc++-devel
@@ -25,6 +27,7 @@ użyciu rozszerzenia kompulatora C++ GCC.
 
 %prep
 %setup -q -n %{name}-%{gitref}
+%patch0 -p1
 
 %build
 install -d build
