@@ -27,7 +27,7 @@ użyciu rozszerzenia kompulatora C++ GCC.
 
 %prep
 %setup -q -n %{name}-%{gitref}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 install -d build
